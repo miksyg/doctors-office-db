@@ -1,5 +1,5 @@
 # doctors-office-db
-Database project for doctor's office management system 
+Database project for doctor's office management application
 
 ## Project scope 
   - relational database design basing on requirements analysis and domain knowledge  
@@ -10,7 +10,21 @@ Database project for doctor's office management system
 ## ERD 
 // to do // 
 
+## Tables
+// to do // 
 
+## Sample Views 
+// to do // 
+
+## Sample Stored Procedure 
+// to do // 
+
+## Sample Trigger 
+// to do // 
+
+
+  
+    
 
 
 

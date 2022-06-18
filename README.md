@@ -5,6 +5,7 @@ Database project for doctor's office management application
   - relational database design basing on requirements analysis and domain knowledge  
   - database structure implementation using **MySQL 8**
   - creating **views, triggers and stored procedures** corresponding to identified requirements 
+  - mock data generation using **Mockaroo** 
   - database testing and SQL queries tuning 
 
 ## ERD 

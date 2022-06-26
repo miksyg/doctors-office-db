@@ -7,6 +7,7 @@ Database project for doctor's office management application
   - creating **views, triggers and stored procedures** corresponding to identified requirements 
   - mock data generation using **Mockaroo** 
   - database testing and SQL queries tuning 
+  - data visualisation using **Power BI Desktop** 
 
 ## ERD 
 // to do // 
@@ -21,6 +22,9 @@ Database project for doctor's office management application
 // to do // 
 
 ## Sample Trigger 
+// to do // 
+
+## Data visualisation 
 // to do // 
 
 

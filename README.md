@@ -12,9 +12,6 @@ Database project for doctor's office management application
 ## ERD 
 // to do // 
 
-## Tables
-// to do // 
-
 ## Sample Views 
 // to do // 
 

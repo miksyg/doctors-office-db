@@ -55,10 +55,38 @@ Sample output:
 
 ![image](https://user-images.githubusercontent.com/39102075/177210469-056c208c-7745-48a8-ba7b-d6b1de28d1d0.png)
 
+## Sample Stored Procedures
+**1/ Show specific doctor (user) timetable for defined period**
+```
+DELIMITER $$
+CREATE PROCEDURE pr_show_timetable_for_doctor (start_date varchar(10), end_date varchar(10), mail varchar(255))
+BEGIN
+      SELECT date(a.appointmentdate) AS 'DATE', a.appointmenttime AS 'TIME', 
+        concat(r.roomcode,', ', r.roomdescription) AS 'ROOM',
+        concat(p.firstname,' ', p.lastname) AS 'PATIENT' 
+      FROM appointment a 
+        INNER JOIN 
+      doctor d ON a.doctorid = d.doctorid
+        INNER JOIN 
+      patient p ON p.patientid = a.patientid
+        INNER JOIN 
+      room r ON r.roomid = a.roomid 
+        INNER JOIN 
+      user u ON u.userid = d.userid
+      WHERE a.iscancelled = 'N' AND (a.appointmentdate BETWEEN cast(start_date AS DATE) AND cast(end_date AS DATE)) 
+      AND u.email = mail
+      ORDER BY a.appointmentdate;
+   END$$
+DELIMITER ;
+```
+Sample use: 
+```
+CALL pr_show_timetable_for_doctor('2022-07-01', '2022-07-04', 'hcheetam1a@baidu.com');
+```
+Sample output: 
 
+![image](https://user-images.githubusercontent.com/39102075/177212094-6369ec03-2b93-4550-9054-b6d360616901.png)
 
-## Sample Stored Procedure 
-// to do // 
 
 ## Sample Trigger 
 // to do // 

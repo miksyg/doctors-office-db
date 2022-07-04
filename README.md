@@ -73,7 +73,8 @@ BEGIN
       room r ON r.roomid = a.roomid 
         INNER JOIN 
       user u ON u.userid = d.userid
-      WHERE a.iscancelled = 'N' AND (a.appointmentdate BETWEEN cast(start_date AS DATE) AND cast(end_date AS DATE)) 
+      WHERE a.iscancelled = 'N' AND (a.appointmentdate BETWEEN cast(start_date AS DATE) 
+      AND cast(end_date AS DATE)) 
       AND u.email = mail
       ORDER BY a.appointmentdate;
    END$$
@@ -87,12 +88,41 @@ Sample output:
 
 ![image](https://user-images.githubusercontent.com/39102075/177212094-6369ec03-2b93-4550-9054-b6d360616901.png)
 
+**2/ Cancel visit**
+```
+DELIMITER $$
+CREATE PROCEDURE pr_cancel_visit(
+	IN Appointment INT
+)
+BEGIN
+	update appointment
+    set IsCancelled = 'Y' 
+    where AppointmentID = Appointment ;
+END$$
+DELIMITER ;
+```
+Sample use: 
+```
+CALL pr_cancel_visit_TEST(55);
+```
 
 ## Sample Trigger 
-// to do // 
-
+**Record last modification date and time for each appointment**
+```
+CREATE 
+    TRIGGER trg_lastmodified
+ BEFORE UPDATE ON appointment FOR EACH ROW 
+    SET new.lastmodified = CURRENT_TIMESTAMP()
+```
 ## Data visualisation 
-// to do // 
+Data visualisation and BI using **MS Power BI Desktop** 
+![image](https://user-images.githubusercontent.com/39102075/177213460-c753ba94-0a51-4221-8541-79c77c31a30d.png)
+![image](https://user-images.githubusercontent.com/39102075/177213501-6a13e799-4af9-4558-be2d-af473d3c239b.png)
+![image](https://user-images.githubusercontent.com/39102075/177213518-6e5fde13-c24f-4144-91d6-ac597cc8f10b.png)
+
+
+
+
 
 
   

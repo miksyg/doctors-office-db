@@ -13,7 +13,49 @@ Database project for doctor's office management application
 ![image](https://user-images.githubusercontent.com/39102075/177207012-1fc6604d-cfaa-476a-923f-be68918836cd.png)
 
 ## Sample Views 
-// to do // 
+**1/ Show offices timetable for today**
+```
+CREATE VIEW v_timetable_for_today AS
+    SELECT 
+        a.AppointmentTime AS 'TIME',
+        CONCAT(d.FirstName, ' ', d.LastName) AS 'DOCTOR',
+        CONCAT(r.RoomCode, ', ', r.RoomDescription) AS 'ROOM',
+        CONCAT(p.FirstName, ' ', p.LastName) AS 'PATIENT'
+    FROM
+        appointment a
+            INNER JOIN
+        doctor d ON a.DoctorID = d.DoctorID
+            INNER JOIN
+        patient p ON p.PatientID = a.PatientID
+            INNER JOIN
+        room r ON r.RoomID = a.RoomID
+    WHERE
+        a.IsCancelled = 'N'
+            AND a.AppointmentDate = CURDATE()
+    ORDER BY a.AppointmentTime
+```
+Sample output: 
+
+![image](https://user-images.githubusercontent.com/39102075/177209826-a2acae95-8c7f-4005-8bfc-6d9485818921.png)
+
+**2/ Show top used drugs**
+```
+CREATE VIEW v_top_used_drugs AS
+    SELECT 
+        d.Name AS 'DRUG NAME',
+        COUNT(pd.PrescriptionID) AS 'PRESCRIPTED'
+    FROM
+        prescription_drug pd
+            INNER JOIN
+        drug d ON pd.DrugID = d.DrugID
+    GROUP BY pd.DrugID
+    ORDER BY PRESCRIPTED DESC
+```
+Sample output: 
+
+![image](https://user-images.githubusercontent.com/39102075/177210469-056c208c-7745-48a8-ba7b-d6b1de28d1d0.png)
+
+
 
 ## Sample Stored Procedure 
 // to do // 

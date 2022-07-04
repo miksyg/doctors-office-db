@@ -10,7 +10,7 @@ Database project for doctor's office management application
   - data visualisation using **Power BI Desktop** 
 
 ## ERD 
-// to do // 
+![image](https://user-images.githubusercontent.com/39102075/177207012-1fc6604d-cfaa-476a-923f-be68918836cd.png)
 
 ## Sample Views 
 // to do // 

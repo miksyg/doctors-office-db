@@ -61,22 +61,22 @@ Sample output:
 DELIMITER $$
 CREATE PROCEDURE pr_show_timetable_for_doctor (start_date varchar(10), end_date varchar(10), mail varchar(255))
 BEGIN
-      SELECT date(a.appointmentdate) AS 'DATE', a.appointmenttime AS 'TIME', 
-        concat(r.roomcode,', ', r.roomdescription) AS 'ROOM',
-        concat(p.firstname,' ', p.lastname) AS 'PATIENT' 
+      SELECT date(a.AppointmentDate) AS 'DATE', a.AppointmentTime AS 'TIME', 
+        concat(r.RoomCode,', ', r.RoomDescription) AS 'ROOM',
+        concat(p.FirstName,' ', p.LastName) AS 'PATIENT' 
       FROM appointment a 
         INNER JOIN 
-      doctor d ON a.doctorid = d.doctorid
+      doctor d ON a.DoctorID = d.DoctorID
         INNER JOIN 
-      patient p ON p.patientid = a.patientid
+      patient p ON p.PatientID = a.PatientID
         INNER JOIN 
-      room r ON r.roomid = a.roomid 
+      room r ON r.RoomID = a.RoomID
         INNER JOIN 
-      user u ON u.userid = d.userid
-      WHERE a.iscancelled = 'N' AND (a.appointmentdate BETWEEN cast(start_date AS DATE) 
+      user u ON u.UserID = d.UserID
+      WHERE a.IsCancelled = 'N' AND (a.AppointmentDate BETWEEN cast(start_date AS DATE) 
       AND cast(end_date AS DATE)) 
-      AND u.email = mail
-      ORDER BY a.appointmentdate;
+      AND u.Email = mail
+      ORDER BY a.AppointmentDate;
    END$$
 DELIMITER ;
 ```

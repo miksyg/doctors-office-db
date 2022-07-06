@@ -13,7 +13,7 @@ Database project for doctor's office management application
 ![image](https://user-images.githubusercontent.com/39102075/177207012-1fc6604d-cfaa-476a-923f-be68918836cd.png)
 
 ## Sample Views 
-**1/ Show offices timetable for today**
+**1/ Show timetable for today**
 ```
 CREATE VIEW v_timetable_for_today AS
     SELECT 
@@ -95,9 +95,9 @@ CREATE PROCEDURE pr_cancel_visit(
 	IN Appointment INT
 )
 BEGIN
-	update appointment
-    set IsCancelled = 'Y' 
-    where AppointmentID = Appointment ;
+	UPDATE appointment
+    SET IsCancelled = 'Y' 
+    WHERE AppointmentID = Appointment ;
 END$$
 DELIMITER ;
 ```

@@ -116,6 +116,7 @@ CREATE
 ```
 ## Data visualisation 
 Data visualisation and BI using **MS Power BI Desktop** 
+
 ![image](https://user-images.githubusercontent.com/39102075/177213460-c753ba94-0a51-4221-8541-79c77c31a30d.png)
 ![image](https://user-images.githubusercontent.com/39102075/177213501-6a13e799-4af9-4558-be2d-af473d3c239b.png)
 ![image](https://user-images.githubusercontent.com/39102075/177213518-6e5fde13-c24f-4144-91d6-ac597cc8f10b.png)

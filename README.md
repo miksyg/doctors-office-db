@@ -103,7 +103,7 @@ DELIMITER ;
 ```
 Sample use: 
 ```
-CALL pr_cancel_visit_TEST(55);
+CALL pr_cancel_visit(55);
 ```
 
 ## Sample Trigger 
